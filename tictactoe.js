@@ -1,9 +1,3 @@
-const getPlayers = function() {
-  firstPlayer = document.getElementById("firstPlayer").value;
-  secondPlayer = document.getElementById("secondPlayer").value;
-  currentPlayer = firstPlayer;
-};
-
 const winningMoves = [
   [0, 1, 2],
   [3, 4, 5],
@@ -17,6 +11,10 @@ const winningMoves = [
 
 let firstPlayerMoves = [];
 let secondPlayerMoves = [];
+let movesMade = [];
+const contains = function(list, element) {
+  return list.includes(element);
+};
 
 const isSubset = function(userMoves, winningMove) {
   isPresent = function(x) {
@@ -29,32 +27,81 @@ const isSubset = function(userMoves, winningMove) {
 const checkWin = function(winningMoves, playerMoves) {
   checker = isSubset.bind(null, playerMoves);
   let result = winningMoves.map(checker);
-  return result;
+  return result.includes(true);
 };
 
 const checkWinner = checkWin.bind(null, winningMoves);
 
-const clickCell = function(cellId, event) {
-  document.getElementById(event.target.id).style.pointerEvents = "none";
+const announceWinner = function(player) {
+  document.getElementById("winner").innerHTML =
+    "Game finished! " + "Winner is " + player + "!!";
+  document.getElementById("allcells").onclick = null;
+};
+
+const announceDraw = function() {
+  document.getElementById("winner").innerHTML =
+    "Game finished! " + "Result is draw!!";
+};
+
+const whoseMove = function(player) {
+  document.getElementById("whoseMove").innerHTML =
+    "Your Turn Mr/Ms/Mrs. :" + player;
+};
+
+const getPlayers = function() {
+  firstPlayer = document.getElementById("firstPlayer").value;
+  secondPlayer = document.getElementById("secondPlayer").value;
+  currentPlayer = firstPlayer;
+};
+
+const getBoard = function() {
+  document.getElementById("instructions").style.display = "none";
+  document.getElementById("getPlayers").style.display = "none";
+  document.getElementById("tictactoeBoard").style.display = "block";
+  whoseMove(currentPlayer);
+};
+
+const isDraw = function(firstPlayerWinState, secondPlayerWinState) {
+  return !firstPlayerWinState && !secondPlayerWinState;
+};
+
+const clickCell = function(event) {
+  let cellId = +event.target.id.replace("cell_", "");
+  if (contains(movesMade, cellId)) {
+    return;
+  }
+  movesMade.push(cellId);
 
   if (currentPlayer == firstPlayer) {
     document.getElementById("cell_" + cellId).style.backgroundColor = "blue";
+    document.getElementById("cell_" + cellId).innerHTML = "X";
     firstPlayerMoves.push(cellId);
     isFirstPlayerWinner = checkWinner(firstPlayerMoves);
 
-    if (isFirstPlayerWinner.includes(true)) {
-      alert("you won " + firstPlayer);
+    if (isFirstPlayerWinner) {
+      announceWinner(firstPlayer);
     }
 
+    whoseMove(secondPlayer);
     currentPlayer = secondPlayer;
   } else {
     document.getElementById("cell_" + cellId).style.backgroundColor = "green";
+    document.getElementById("cell_" + cellId).innerHTML = "O";
+
     secondPlayerMoves.push(cellId);
 
     isSecondPlayerWinner = checkWinner(secondPlayerMoves);
-    if (isSecondPlayerWinner.includes(true)) {
-      alert("you won " + secondPlayer);
+    if (isSecondPlayerWinner) {
+      announceWinner(secondPlayer);
     }
+    whoseMove(firstPlayer);
     currentPlayer = firstPlayer;
+  }
+
+  if (
+    movesMade.length == 9 &&
+    isDraw(isFirstPlayerWinner, isSecondPlayerWinner)
+  ) {
+    announceDraw();
   }
 };
