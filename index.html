@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" type="text/css" href="main.css" />
+    <script type="text/javascript" src="./tictactoe.js"></script>
+  </head>
+  <body style="background-color: black;">
+    <h1 align="center" style="color: white">TIC-TAC-TOE</h1>
+
+    <input id="firstPlayer" type="text" placeholder="First Player Name" />
+    <input id="secondPlayer" type="text" placeholder="Second Player Name" />
+    <button onclick="getPlayers()">Submit</button>
+    <hr />
+    <div>
+      <Table>
+        <tr>
+          <td id="cell_0" class="cell" onclick="clickCell(0,event);"></td>
+          <td id="cell_1" class="cell" onclick="clickCell(1,event);"></td>
+          <td id="cell_2" class="cell" onclick="clickCell(2,event);"></td>
+        </tr>
+        <tr>
+          <td id="cell_3" class="cell" onclick="clickCell(3,event);"></td>
+          <td id="cell_4" class="cell" onclick="clickCell(4,event);"></td>
+          <td id="cell_5" class="cell" onclick="clickCell(5,event);"></td>
+        </tr>
+        <tr>
+          <td id="cell_6" class="cell" onclick="clickCell(6,event);"></td>
+          <td id="cell_7" class="cell" onclick="clickCell(7,event);"></td>
+          <td id="cell_8" class="cell" onclick="clickCell(8,event);"></td>
+        </tr>
+      </Table>
+    </div>
+  </body>
+</html>
