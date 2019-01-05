@@ -2,13 +2,14 @@
   width: 80px;
   height: 80px;
   /* border: 5px solid black; */
-  background: white;
+  background: black;
   font-size: 46px;
   text-align: center;
   margin: auto;
 }
 .gameHeading {
   text-align: center;
+  border-bottom: 1px solid white;
 }
 .playerButtonLabels {
   font-family: sans-serif;
@@ -19,6 +20,8 @@
   height: 30px;
   margin-left: 10%;
   margin-top: 20px;
+  border-radius: 5px;
+  background-color: darkgray;
 }
 .tictactoeBoard {
   display: none;
@@ -27,46 +30,52 @@
   margin: auto;
 }
 .cell_0 {
-  border-right: 5px solid black;
-  border-bottom: 5px solid black;
+  border-right: 5px solid white;
+  border-top-right-radius: auto;
+  border-bottom: 5px solid white;
 }
 .cell_1 {
-  border-bottom: 5px solid black;
-  border-right: 5px solid black;
-  border-left: 5px solid black;
+  border-bottom: 5px solid white;
+  border-right: 5px solid white;
+  border-left: 5px solid white;
 }
 .cell_2 {
-  border-bottom: 5px solid black;
-  border-left: 5px solid black;
+  border-bottom: 5px solid white;
+  border-left: 5px solid white;
 }
 .cell_3 {
-  border-bottom: 5px solid black;
-  border-right: 5px solid black;
-  border-top: 5px solid black;
+  border-bottom: 5px solid white;
+  border-right: 5px solid white;
+  border-top: 5px solid white;
 }
 .cell_4 {
-  border: 5px solid black;
+  border: 5px solid white;
 }
 .cell_5 {
-  border-bottom: 5px solid black;
-  border-left: 5px solid black;
-  border-top: 5px solid black;
+  border-bottom: 5px solid white;
+  border-left: 5px solid white;
+  border-top: 5px solid white;
 }
 .cell_6 {
-  border-right: 5px solid black;
-  border-top: 5px solid black;
+  border-right: 5px solid white;
+  border-top: 5px solid white;
 }
 .cell_7 {
-  border-right: 5px solid black;
-  border-left: 5px solid black;
-  border-top: 5px solid black;
+  border-right: 5px solid white;
+  border-left: 5px solid white;
+  border-top: 5px solid white;
 }
 .cell_8 {
-  border-left: 5px solid black;
-  border-top: 5px solid black;
+  border-left: 5px solid white;
+  border-top: 5px solid white;
 }
-. input {
+input {
   margin: 15px;
   width: 300px;
   height: 25px;
+}
+body {
+  color: white;
+  background-color: black;
+  font-family: sans-serif;
 }
