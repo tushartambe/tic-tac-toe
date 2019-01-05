@@ -51,7 +51,18 @@ const whoseMove = function(player) {
 const getPlayers = function() {
   firstPlayer = document.getElementById("firstPlayer").value;
   secondPlayer = document.getElementById("secondPlayer").value;
-  currentPlayer = firstPlayer;
+  if (firstPlayer == secondPlayer) {
+    firstPlayer = document.getElementById("firstPlayer").id;
+    secondPlayer = document.getElementById("secondPlayer").id;
+    firstPlayer =
+      firstPlayer + ":" + document.getElementById("firstPlayer").value;
+
+    secondPlayer =
+      secondPlayer + ":" + document.getElementById("secondPlayer").value;
+    currentPlayer = firstPlayer;
+  } else {
+    currentPlayer = firstPlayer;
+  }
 };
 
 const getBoard = function() {
