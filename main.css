@@ -1,7 +1,7 @@
 .cell {
   width: 80px;
   height: 80px;
-  border: 5px solid black;
+  /* border: 5px solid black; */
   background: white;
   font-size: 46px;
   text-align: center;
@@ -25,9 +25,47 @@
 }
 .tictactoeTable {
   margin: auto;
-  border-right: none;
 }
-input {
+.cell_0 {
+  border-right: 5px solid black;
+  border-bottom: 5px solid black;
+}
+.cell_1 {
+  border-bottom: 5px solid black;
+  border-right: 5px solid black;
+  border-left: 5px solid black;
+}
+.cell_2 {
+  border-bottom: 5px solid black;
+  border-left: 5px solid black;
+}
+.cell_3 {
+  border-bottom: 5px solid black;
+  border-right: 5px solid black;
+  border-top: 5px solid black;
+}
+.cell_4 {
+  border: 5px solid black;
+}
+.cell_5 {
+  border-bottom: 5px solid black;
+  border-left: 5px solid black;
+  border-top: 5px solid black;
+}
+.cell_6 {
+  border-right: 5px solid black;
+  border-top: 5px solid black;
+}
+.cell_7 {
+  border-right: 5px solid black;
+  border-left: 5px solid black;
+  border-top: 5px solid black;
+}
+.cell_8 {
+  border-left: 5px solid black;
+  border-top: 5px solid black;
+}
+. input {
   margin: 15px;
   width: 300px;
   height: 25px;

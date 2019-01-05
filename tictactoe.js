@@ -44,8 +44,7 @@ const announceDraw = function() {
 };
 
 const whoseMove = function(player) {
-  document.getElementById("whoseMove").innerHTML =
-    "Your Turn Mr/Ms/Mrs. :" + player;
+  document.getElementById("whoseMove").innerHTML = "Your Turn  :" + player;
 };
 
 const getPlayers = function() {
@@ -55,10 +54,10 @@ const getPlayers = function() {
     firstPlayer = document.getElementById("firstPlayer").id;
     secondPlayer = document.getElementById("secondPlayer").id;
     firstPlayer =
-      firstPlayer + ":" + document.getElementById("firstPlayer").value;
+      firstPlayer + " " + document.getElementById("firstPlayer").value;
 
     secondPlayer =
-      secondPlayer + ":" + document.getElementById("secondPlayer").value;
+      secondPlayer + " " + document.getElementById("secondPlayer").value;
     currentPlayer = firstPlayer;
   } else {
     currentPlayer = firstPlayer;
@@ -84,7 +83,6 @@ const clickCell = function(event) {
   movesMade.push(cellId);
 
   if (currentPlayer == firstPlayer) {
-    document.getElementById("cell_" + cellId).style.backgroundColor = "blue";
     document.getElementById("cell_" + cellId).innerHTML = "X";
     firstPlayerMoves.push(cellId);
     isFirstPlayerWinner = checkWinner(firstPlayerMoves);
@@ -96,7 +94,6 @@ const clickCell = function(event) {
     whoseMove(secondPlayer);
     currentPlayer = secondPlayer;
   } else {
-    document.getElementById("cell_" + cellId).style.backgroundColor = "green";
     document.getElementById("cell_" + cellId).innerHTML = "O";
 
     secondPlayerMoves.push(cellId);
