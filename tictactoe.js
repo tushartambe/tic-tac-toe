@@ -41,6 +41,7 @@ const announceWinner = function(player) {
 const announceDraw = function() {
   document.getElementById("winner").innerHTML =
     "Game finished! " + "Result is draw!!";
+  document.getElementById("whoseMove").innerHTML = "";
 };
 
 const whoseMove = function(player) {
@@ -53,11 +54,10 @@ const getPlayers = function() {
   if (firstPlayer == secondPlayer) {
     firstPlayer = document.getElementById("firstPlayer").id;
     secondPlayer = document.getElementById("secondPlayer").id;
-    firstPlayer =
-      firstPlayer + " " + document.getElementById("firstPlayer").value;
-
-    secondPlayer =
-      secondPlayer + " " + document.getElementById("secondPlayer").value;
+    // firstPlayer =
+    //   firstPlayer + " " + document.getElementById("firstPlayer").value;
+    // secondPlayer =
+    //   secondPlayer + " " + document.getElementById("secondPlayer").value;
     currentPlayer = firstPlayer;
   } else {
     currentPlayer = firstPlayer;
